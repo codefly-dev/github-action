@@ -5,9 +5,9 @@ runs:
   steps:
     - run: |
         docker run  \
-          -v $(pwd):$(pwd) \
+          -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE \
           -v /var/run/docker.sock:/var/run/docker.sock \
-          -w $(pwd) \
+          -w $GITHUB_WORKSPACE \
           docker.io/codeflydev/codefly:0.0.1 \
           codefly ci test
       shell: bash
